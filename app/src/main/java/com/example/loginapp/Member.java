@@ -12,12 +12,13 @@ public class Member {
     public void setInput(String input) {
         this.input = input;
     }
+
     public String getOutput() {
-        return input;
+        return output;
     }
 
-    public void setOutput(String input) {
-        this.input = input;
+    public void setOutput(String output) {
+        this.output = output;
     }
 
 }
