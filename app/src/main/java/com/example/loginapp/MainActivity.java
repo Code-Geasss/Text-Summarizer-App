@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Button getbtn,postbtn,subbtn;
     FirebaseDatabase database;
     DatabaseReference ref;
+    FirebaseUser firebaseUser;
     Member member;
     long id = 0;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
@@ -47,16 +49,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        text = (EditText) findViewById(R.id.text);
-        text.setMovementMethod(new ScrollingMovementMethod());
-        getbtn = (Button) findViewById(R.id.getBtn);
-        /*getbtn.setVisibility(View.INVISIBLE);*/
-        postbtn = (Button)findViewById(R.id.postBtn);
-        subbtn = (Button)findViewById(R.id.button2);
-        Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-        ref = database.getInstance().getReference().child("User").child(currentuser);
+            Intent loginIntent = new Intent(MainActivity.this,Login.class);
+            startActivity(loginIntent);
+            String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            text = (EditText) findViewById(R.id.text);
+            text.setMovementMethod(new ScrollingMovementMethod());
+            getbtn = (Button) findViewById(R.id.getBtn);
+            /*getbtn.setVisibility(View.INVISIBLE);*/
+            postbtn = (Button) findViewById(R.id.postBtn);
+            Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+            setSupportActionBar(myToolbar);
+            ref = database.getInstance().getReference().child("User").child(currentuser);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -72,15 +75,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         member=new Member();
-
-        /*subbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                member.setInput(text.getText().toString());
-                ref.child("User" + String.valueOf(id)).setValue(member);
-                Toast.makeText(MainActivity.this,"Data inserted",Toast.LENGTH_LONG).show();
-            }
-        });*/
 
         Gson gson = new GsonBuilder()
                 .setLenient()
@@ -222,11 +216,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    public void logout(View view){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),Login.class));
-        finish();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -238,9 +227,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
          super.onOptionsItemSelected(item);
-         if(item.getItemId() == R.id.actions_settings)
+         if(item.getItemId() == R.id.recent)
          {
              SendUsertoRecentActivity();
+         }
+         if(item.getItemId()==R.id.logout)
+         {
+             FirebaseAuth.getInstance().signOut();
+             startActivity(new Intent(getApplicationContext(),Login.class));
+             finish();
          }
          return true;
     }
@@ -248,5 +243,6 @@ public class MainActivity extends AppCompatActivity {
     private void SendUsertoRecentActivity() {
         Intent recentIntent = new Intent(MainActivity.this,RecentActivity.class);
         startActivity(recentIntent);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slideout_from_right);
     }
 }

@@ -15,13 +15,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity {
 
-    EditText mFullName,mEmail,mPassword,mPhone;
-    Button mRegisterbtn;
+    EditText mFullName,mEmail,mPassword;
+    FloatingActionButton mRegisterbtn;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
@@ -34,12 +35,10 @@ public class Register extends AppCompatActivity {
         mFullName=findViewById(R.id.fullName);
         mEmail=findViewById(R.id.Email);
         mPassword=findViewById(R.id.password);
-        mPhone=findViewById(R.id.phone);
         mRegisterbtn=findViewById(R.id.registerBtn);
         mLoginBtn=findViewById(R.id.createText);
 
         fAuth=FirebaseAuth.getInstance();
-        progressBar=findViewById(R.id.progressBar);
 
         if (fAuth.getCurrentUser()!=null){
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
@@ -67,7 +66,6 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -77,7 +75,6 @@ public class Register extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(Register.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
@@ -87,6 +84,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),Login.class));
+                overridePendingTransition(R.anim.slide_from_left,R.anim.slideout_from_right);
             }
         });
 
