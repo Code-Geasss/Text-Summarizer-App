@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-            Intent loginIntent = new Intent(MainActivity.this,Login.class);
-            startActivity(loginIntent);
             String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
             text = (EditText) findViewById(R.id.text);
             text.setMovementMethod(new ScrollingMovementMethod());
