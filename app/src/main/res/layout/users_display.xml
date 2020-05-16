@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    android:layout_height="150dp">
+    android:layout_marginTop="8dp"
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#121111"
-        android:padding="8dp">
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:background="@color/card_bg_color"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:scrollbars="vertical"
             android:id="@+id/input"
             android:text="INPUT"
             android:textSize="16sp"
-            android:textColor="#FFFFFF"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/content_text_color"
             android:layout_width="match_parent"
             android:layout_height="75dp"/>
 
         <TextView
             android:id="@+id/output"
-            android:text="OUTPUT"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/input"
+            android:layout_alignStart="@+id/input"
+            android:layout_alignLeft="@id/input"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:lineSpacingExtra="8dp"
             android:scrollbars="vertical"
-            android:textColor="#FFFFFF"
+            android:text="OUTPUT"
+            android:textColor="@color/title_text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-    </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

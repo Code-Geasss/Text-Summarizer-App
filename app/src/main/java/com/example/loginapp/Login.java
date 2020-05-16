@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
 
     EditText mEmail,mPassword;
     FloatingActionButton mLoginBtn;
-    TextView mCreateBtn,forgotTextLink;
+    TextView reglink,forgotTextLink;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
         mEmail=findViewById(R.id.Email);
         mPassword=findViewById(R.id.password);
         fAuth=FirebaseAuth.getInstance();
-        mCreateBtn=findViewById(R.id.createText);
+        reglink = (TextView)findViewById(R.id.reglink);
         mLoginBtn=findViewById(R.id.loginBtn);
         forgotTextLink=findViewById(R.id.forgotPassword);
 
@@ -82,10 +82,11 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        mCreateBtn.setOnClickListener(new View.OnClickListener() {
+        reglink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Register.class));
+                Intent regIntent = new Intent(Login.this,Register.class);
+                startActivity(regIntent);
                 overridePendingTransition(R.anim.slide_from_right,R.anim.slideout_from_left);
             }
         });
@@ -93,7 +94,7 @@ public class Login extends AppCompatActivity {
         forgotTextLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),ForgotPasswordActivity.class));
+                startActivity(new Intent(Login.this,ForgotPasswordActivity.class));
                 overridePendingTransition(R.anim.slide_from_right,R.anim.slideout_from_left);
             }
         });

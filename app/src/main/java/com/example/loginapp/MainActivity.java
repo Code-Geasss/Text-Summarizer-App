@@ -207,13 +207,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        subbtn.setOnClickListener(new View.OnClickListener() {
+        /*subbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String txt = text.getText().toString().trim();
                 Toast.makeText(MainActivity.this, txt, Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
     }
 

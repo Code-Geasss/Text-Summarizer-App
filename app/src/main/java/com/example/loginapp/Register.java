@@ -80,10 +80,12 @@ public class Register extends AppCompatActivity {
                 });
             }
         });
+
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),Login.class));
+                overridePendingTransition(R.anim.slide_from_left,R.anim.slideout_from_right);
                 overridePendingTransition(R.anim.slide_from_left,R.anim.slideout_from_right);
             }
         });

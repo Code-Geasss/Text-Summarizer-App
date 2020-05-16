@@ -119,7 +119,7 @@
             android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/createText"
+                android:id="@+id/reglink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
