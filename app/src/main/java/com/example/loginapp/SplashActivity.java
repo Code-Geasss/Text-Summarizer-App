@@ -20,7 +20,11 @@ private FirebaseAuth mAuth;
         setContentView(R.layout.activity_splash);
 
         mAuth = FirebaseAuth.getInstance();
+<<<<<<< HEAD
         SystemClock.sleep(10000);
+=======
+        SystemClock.sleep(2000);
+>>>>>>> 3628820e47e7539ab3160ea55b84aa2ea099e8b7
     }
 
     @Override
