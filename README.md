@@ -14,6 +14,8 @@ A Text Summarizer App
  
  ![](images/Forgot_PAssword.PNG)
  
+ ![](images/reset.PNG)
+ 
  ![](images/Post.PNG)
  
  ![](images/get.PNG)
