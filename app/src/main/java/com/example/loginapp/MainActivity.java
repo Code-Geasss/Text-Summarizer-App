@@ -79,11 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
-<<<<<<< HEAD
                 .baseUrl("http://b2be3591.ngrok.io")
-=======
-                .baseUrl("http://93ac2233.ngrok.io")
->>>>>>> 3628820e47e7539ab3160ea55b84aa2ea099e8b7
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
