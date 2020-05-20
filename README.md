@@ -1,5 +1,10 @@
 A Text Summarizer App
 
+Do you feel bored of reading big long texts/messages , Well everyone does.
+
+Try to be more productive and utilize your time by reading just the important things in the messages. Just input any long text/message in the text area as shown in the pictures below and get the short summary  :) 
+
+
 ![](images/python.PNG)
 
 ![](images/ngrok.PNG)
