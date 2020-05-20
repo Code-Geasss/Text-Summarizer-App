@@ -18,10 +18,10 @@ A Text Summarizer App
  
  ![](images/Get.png)
  
- ![](images/More_Option.png)
+ ![](images/menu.png)
  
- ![](images/Recycler.png)
- 
- ![](images/Black_Mode.png)
+ ![](images/light_theme.png)
+  
+ ![](images/dark_theme.png)
  
  ![](images/photo.png)
