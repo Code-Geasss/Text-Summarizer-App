@@ -4,7 +4,7 @@ A Text Summarizer App
 
 ![](images/ngrok.PNG)
 
- ![](images/Initial.png)
+ ![](images/splash.png)
  
  
  ![](images/SignUp.PNG)
