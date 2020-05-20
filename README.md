@@ -14,7 +14,7 @@ A Text Summarizer App
  
  ![](images/Forgot_PAssword.PNG)
  
- ![](images/Post.png)
+ ![](images/photo.png)
  
  ![](images/Get.png)
  
@@ -24,4 +24,4 @@ A Text Summarizer App
   
  ![](images/dark_theme.png)
  
- ![](images/photo.png)
+
