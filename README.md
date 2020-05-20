@@ -24,3 +24,4 @@ A Text Summarizer App
  
  ![](images/Black_Mode.png)
  
+ ![](images/photo.png)
