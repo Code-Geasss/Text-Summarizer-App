@@ -10,13 +10,13 @@ A Text Summarizer App
  ![](images/SignUp.PNG)
  
  
- ![](images/Login.png)
+ ![](images/login.PNG)
  
  ![](images/Forgot_PAssword.PNG)
  
  ![](images/photo.png)
  
- ![](images/Get.png)
+ ![](images/get.PNG)
  
  ![](images/menu.png)
  
